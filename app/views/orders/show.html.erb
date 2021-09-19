@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @order.currency %>
+</p>
+
+<p>
+  <strong>Gross amount:</strong>
+  <%= @order.gross_amount %>
+</p>
+
+<p>
+  <strong>Discount amount:</strong>
+  <%= @order.discount_amount %>
+</p>
+
+<p>
+  <strong>Net amount:</strong>
+  <%= @order.net_amount %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @order.category.name %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

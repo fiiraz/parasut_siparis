@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Orders</h1>
+
+<%= form_tag('/orders', method: 'get') do %>
+  <%= label_tag(:category_id, 'Select a Category') %>
+  <%= collection_select(:order, :category_id, Category.all, :id, :name, {:prompt => "ALL"}) %>
+  <%= submit_tag('Filter') %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Currency</th>
+      <th>Gross amount</th>
+      <th>Discount amount</th>
+      <th>Net Amount</th>
+      <th>Category</th>
+      <th colspan="3">Options</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.currency %></td>
+        <td><%= order.gross_amount %></td>
+        <td><%= order.discount_amount %></td>
+        <td><%= order.net_amount %></td>
+        <td><%= order.category.name %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order', new_order_path %>
+<br>
+<%= link_to 'Category', categories_path %>

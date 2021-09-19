@@ -1,0 +1,31 @@
+<%= form_with(model: order) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.select( :currency,  ["TRY","USD","EUR"], {include_blank: 'Select Currency'})%>
+
+  <div class="field">
+    <%= form.label :gross_amount %>
+    <%= form.text_field :gross_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :discount_amount %>
+    <%= form.text_field :discount_amount %>
+  </div>
+
+  <%= form.select( :category_id,  Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'Select Category'})%>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
