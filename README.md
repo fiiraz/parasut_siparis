@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Paraşüt Order Management App
 
-Things you may want to cover:
+* Ruby version: 2.6.3p62
 
-* Ruby version
+* Database creation: rails db:create
 
-* System dependencies
+* Database initialization rails db:migrate
 
-* Configuration
+* Database default dummy datas: rails db:seed
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* How to run the test suite: rails test:controllers
