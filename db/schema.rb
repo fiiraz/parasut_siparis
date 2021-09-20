@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_09_18_140726) do
     t.string "currency", null: false
     t.decimal "gross_amount", precision: 10, scale: 2, null: false
     t.decimal "discount_amount", precision: 10, scale: 2, default: "0.0", null: false
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_orders_on_category_id"

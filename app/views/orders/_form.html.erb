@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= form.select( :currency,  ["TRY","USD","EUR"], {include_blank: 'Select Currency'})%>
+  <%= form.select( :currency, Order::CURRENCIES, {include_blank: 'Select Currency'})%>
 
   <div class="field">
     <%= form.label :gross_amount %>
