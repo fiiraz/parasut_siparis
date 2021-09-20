@@ -45,4 +45,20 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to categories_url
   end
+
+  test "category new" do
+    category = Category.new(name: 'test')
+    assert category.valid?
+  end
+
+  test "category name should be unique" do
+    add_category
+    new_category = Category.new(name: 'test')
+    assert !new_category.valid?
+  end
+
+  def add_category
+    category = Category.new(name: 'test')
+    category.save
+  end
 end

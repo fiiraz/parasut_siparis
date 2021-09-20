@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  CURRENCIES = %w(TRY USD EUR).freeze
+  CURRENCIES = %w(TL USD EUR).freeze
 
   belongs_to :category
 
