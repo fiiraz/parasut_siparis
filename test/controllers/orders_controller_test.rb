@@ -3,7 +3,6 @@ require "test_helper"
 class OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @order = orders(:one)
-    @order_two = orders(:two)
   end
 
   test "should get index" do
@@ -13,11 +12,6 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
 
   test "should get new" do
     get new_order_url
-    assert_response :success
-  end
-
-  test "should create order" do
-    post orders_url, params: { order: { category_id: @order.category_id, currency: @order.currency, discount_amount: @order.discount_amount, gross_amount: @order.gross_amount } }
     assert_response :success
   end
 

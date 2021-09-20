@@ -5,12 +5,12 @@ class OrdersController < ApplicationController
   def index
     if params[:order]
       if params[:order][:category_id] == ''
-        @orders = Order.all
+        @orders = Order.where.not(category_id: nil)
       else
         @orders = filter(params[:order][:category_id])
       end
     else
-      @orders = Order.all
+      @orders = Order.where.not(category_id: nil)
     end
   end
 
